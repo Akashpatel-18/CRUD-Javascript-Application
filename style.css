@@ -1,0 +1,27 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+i{
+    padding: 7px;
+    border-radius: 50%;
+}
+i:hover{
+    background-color: #f1ecec;
+}
+
+.fa-solid{
+    cursor: pointer;
+}
+.fa-pen-to-square{
+    color: green;
+}
+.fa-trash-can{
+    color: red;
+}
