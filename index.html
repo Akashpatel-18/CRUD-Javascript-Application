@@ -26,7 +26,7 @@
       crossorigin="anonymous"
     />
   </head>
-  <body>
+  <body onload="show()">
     <div class="container">
       <div class="row">
         <div class="col-md-9">
@@ -35,6 +35,7 @@
             <div class="flex-grow-1">
               <!-- Button trigger modal -->
               <button
+              id="openModal"
                 style="align-items: center"
                 type="button"
                 class="btn btn-success fw-bold"
@@ -62,8 +63,9 @@
               <input type="text" value="10" />
             </div>
           </div>
+          <h3 id="noData" class="pt-4">No Record yet</h3>
           <div class="table-responsive">
-            <table class="table table-striped table-bordered text-md-center">
+            <table id="table" class="table table-striped table-bordered text-md-center">
               <thead>
                 <tr class="table-dark text-white">
                   <th>Name</th>
@@ -75,127 +77,8 @@
                   <th>Actions</th>
                 </tr>
               </thead>
-              <tbody class="table-group-divider">
-                <tr>
-                  <td>Akash</td>
-                  <td>akash@gmail.com</td>
-                  <td>729409322</td>
-                  <td>Male</td>
-                  <td>Hardware Issues</td>
-                  <td>message 1</td>
-                  <td>
-                    <i class="fa-solid fa-pen-to-square" data-bs-toggle="modal" data-bs-target="#exampleModal"></i
-                    ><i class="fa-solid fa-trash-can"></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Akash</td>
-                  <td>akash@gmail.com</td>
-                  <td>729409322</td>
-                  <td>Male</td>
-                  <td>Hardware Issues</td>
-                  <td>message 1</td>
-                  <td>
-                    <i class="fa-solid fa-pen-to-square" data-bs-toggle="modal" data-bs-target="#exampleModal"></i
-                    ><i class="fa-solid fa-trash-can"></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Akash</td>
-                  <td>akash@gmail.com</td>
-                  <td>729409322</td>
-                  <td>Male</td>
-                  <td>Hardware Issues</td>
-                  <td>message 1</td>
-                  <td>
-                    <i class="fa-solid fa-pen-to-square" data-bs-toggle="modal" data-bs-target="#exampleModal"></i
-                    ><i class="fa-solid fa-trash-can"></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Akash</td>
-                  <td>akash@gmail.com</td>
-                  <td>729409322</td>
-                  <td>Male</td>
-                  <td>Hardware Issues</td>
-                  <td>message 1</td>
-                  <td>
-                    <i class="fa-solid fa-pen-to-square" data-bs-toggle="modal" data-bs-target="#exampleModal"></i
-                    ><i class="fa-solid fa-trash-can"></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Akash</td>
-                  <td>akash@gmail.com</td>
-                  <td>729409322</td>
-                  <td>Male</td>
-                  <td>Hardware Issues</td>
-                  <td>message 1</td>
-                  <td>
-                    <i class="fa-solid fa-pen-to-square" data-bs-toggle="modal" data-bs-target="#exampleModal"></i
-                    ><i class="fa-solid fa-trash-can"></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Akash</td>
-                  <td>akash@gmail.com</td>
-                  <td>729409322</td>
-                  <td>Male</td>
-                  <td>Hardware Issues</td>
-                  <td>message 1</td>
-                  <td class="d-flex align-items-center justify-content-center">
-                    <i class="fa-solid fa-pen-to-square" data-bs-toggle="modal" data-bs-target="#exampleModal"></i
-                    ><i class="fa-solid fa-trash-can"></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Akash</td>
-                  <td>akash@gmail.com</td>
-                  <td>729409322</td>
-                  <td>Male</td>
-                  <td>Hardware Issues</td>
-                  <td>message 1</td>
-                  <td>
-                    <i class="fa-solid fa-pen-to-square" data-bs-toggle="modal" data-bs-target="#exampleModal"></i
-                    ><i class="fa-solid fa-trash-can"></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Akash</td>
-                  <td>akash@gmail.com</td>
-                  <td>729409322</td>
-                  <td>Male</td>
-                  <td>Hardware Issues</td>
-                  <td>message 1</td>
-                  <td>
-                    <i class="fa-solid fa-pen-to-square" data-bs-toggle="modal" data-bs-target="#exampleModal"></i
-                    ><i class="fa-solid fa-trash-can"></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Akash</td>
-                  <td>akash@gmail.com</td>
-                  <td>729409322</td>
-                  <td>Male</td>
-                  <td>Hardware Issues</td>
-                  <td>message 1</td>
-                  <td>
-                    <i class="fa-solid fa-pen-to-square" data-bs-toggle="modal" data-bs-target="#exampleModal"></i
-                    ><i class="fa-solid fa-trash-can"></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Akash</td>
-                  <td>akash@gmail.com</td>
-                  <td>729409322</td>
-                  <td>Male</td>
-                  <td>Hardware Issues</td>
-                  <td>message 1</td>
-                  <td>
-                    <i class="fa-solid fa-pen-to-square" data-bs-toggle="modal" data-bs-target="#exampleModal"></i
-                    ><i class="fa-solid fa-trash-can"></i>
-                  </td>
-                </tr>
+              <tbody id="tbody" class="table-group-divider">
+
               </tbody>
             </table>
           </div>
@@ -211,12 +94,15 @@
       tabindex="-1"
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
+      data-bs-backdrop="static"
+       data-bs-keyboard="false"
     >
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Add Enquiry</h1>
+            <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
             <button
+            id="topClose"
               type="button"
               class="btn-close"
               data-bs-dismiss="modal"
@@ -238,7 +124,7 @@
                   <input type="tel" class="form-control" id="phoneNumber" placeholder="" autocomplete="off" pattern="\d{10}" title="ex. 1234567890" required />
                   <label for="floatingInput">Phone Number</label>
                 </div>
-                <div class="form-group d-flex align-items-center mt-3">
+                <div class="form-group d-flex align-items-center mt-3 mb-3">
                   <div>
                     <label>Gender:</label>
                   </div>
@@ -258,7 +144,7 @@
                   
                 </div>
 
-                <div class="form-group d-flex align-items-center mt-3">
+                <!-- <div class="form-group d-flex align-items-center mt-3">
                   <div>
                     <label>Interests:</label>
                   </div>
@@ -274,17 +160,28 @@
                     <input class="form-check-input" type="checkbox" name="interests" value="traveling" id="travelingCheckbox">
                     <label class="form-check-label" for="travelingCheckbox">Traveling</label>
                   </div>
+                </div> -->
+                
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="enquiry" placeholder="" autocomplete="off" required />
+                  <label for="floatingInput">Enquiry</label>
                 </div>
-            </form>
+                <div class="form-floating">
+                  <textarea class="form-control" placeholder="Leave a message here" id="floatingTextarea" style="height: 100px" required></textarea>
+                  <label for="floatingTextarea">Message</label>
+                </div>
+
+              </form>
           </div>
           <div class="modal-footer">
             <button
+            id="bottomClose"
               class="btn btn-secondary float-end"
               data-bs-dismiss="modal"
             >
               Cancel
             </button>
-            <button id="add" type="submit" form="myForm" class="btn btn-primary float-end">Submit</button>
+            <button id="add" type="submit" form="myForm" class="btn btn-primary float-end"></button>
           </div>
         </div>
       </div>
@@ -297,9 +194,9 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
-    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
